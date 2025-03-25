@@ -25,4 +25,18 @@ public class MotorcycleService {
 		motorcycleRepository.deleteMotorcycle(id);
 		System.out.println("Motocicleta eliminada correctamente.");
 	}
+	
+	public void findMotorcycleById(int id) throws SQLException {
+	    MotorcycleDTO motorcycle = motorcycleRepository.findMotorcycleById(id);
+	    if (motorcycle != null) {
+	        System.out.println("Motocicleta encontrada:");
+	        System.out.println("ID: " + motorcycle.getId());
+	        System.out.println("Marca: " + motorcycle.getMarca());
+	        System.out.println("Cilindraje: " + motorcycle.getCilindraje() + "cc");
+	        System.out.println("Precio: $" + motorcycle.getPrecio());
+	        System.out.println("Color: " + motorcycle.getColor());
+	    } else {
+	        System.out.println("No se encontró una motocicleta con ID: " + id);
+	    }
+	}
 }
